@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { AuthButtons } from "./";
 import { links } from "../utilis/constants";
+import { useProductsContext } from "../context/products_context";
 import logo from "../assets/icon.svg";
 const Navbar = () => {
+  const { openSidebar } = useProductsContext();
   return (
     <NavContainer>
       <div className="nav-center">
@@ -16,7 +18,7 @@ const Navbar = () => {
               Sound <span className="logo-accent">Design</span>{" "}
             </p>
           </Link>
-          <button className="nav-toogle">
+          <button className="nav-toogle" onClick={openSidebar}>
             <FaBars />
           </button>
         </div>
@@ -24,7 +26,7 @@ const Navbar = () => {
           {links.map((item) => {
             const { id, text, url } = item;
             return (
-              <li>
+              <li key={id}>
                 <Link to={url}>{text}</Link>
               </li>
             );

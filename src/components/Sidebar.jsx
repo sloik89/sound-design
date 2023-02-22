@@ -4,11 +4,14 @@ import { Link } from "react-router-dom";
 import logo from "../assets/icon.svg";
 import { FaTimes } from "react-icons/fa";
 import { links } from "../utilis/constants";
+import { useProductsContext } from "../context/products_context";
 import { AuthButtons } from "./";
 const Sidebar = () => {
+  const { isSidebarOpen, closeSidebar } = useProductsContext();
+  console.log(isSidebarOpen);
   return (
     <Wrapper>
-      <aside className="sidebar">
+      <aside className={`sidebar ${isSidebarOpen ? "sidebar-open" : ""}`}>
         <div className="aside-header">
           <Link to="/" className="logo">
             <img className="logo-icon" src={logo} alt="" />
@@ -16,7 +19,7 @@ const Sidebar = () => {
               Sound <span className="logo-accent">Design</span>{" "}
             </p>
           </Link>
-          <button className="close-btn">
+          <button className="close-btn" onClick={closeSidebar}>
             <FaTimes />
           </button>
         </div>
@@ -40,13 +43,19 @@ const Sidebar = () => {
 
 export default Sidebar;
 const Wrapper = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: #fff;
-
+  .sidebar {
+    transform: translateX(-100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    transition: 0.4s linear;
+  }
+  .sidebar-open {
+    transform: translateX(0);
+  }
   .close-btn {
     font-size: 3rem;
     border: none;
