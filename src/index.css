@@ -7,6 +7,7 @@
 :root {
   --max-width: 1170px;
   --clr-violet: #d32ec3;
+  --clr-font: #a49ba3;
 }
 body {
   font-family: "Roboto", "sans-serif";
@@ -22,4 +23,7 @@ ul {
   max-width: var(--max-width);
   margin: 0 auto;
   width: 90vw;
+}
+body {
+  color: var(--clr-font);
 }
