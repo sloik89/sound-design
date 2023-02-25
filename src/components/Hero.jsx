@@ -74,7 +74,7 @@ const Wrapper = styled.section`
       height: 110%;
       top: -50px;
       left: -20px;
-      border: 5px solid black;
+      border: 5px solid var(--clr-dark-violet);
       border-radius: 1rem;
       animation: move 3s infinite alternate linear;
     }

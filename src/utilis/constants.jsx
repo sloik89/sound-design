@@ -17,3 +17,23 @@ export const links = [
     url: "/products",
   },
 ];
+export const services = [
+  {
+    id: 1,
+    icon: <GiCompass />,
+    title: "Gaming Headphones",
+    text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam corporis facere doloribus quo eos! Recusandae vitae qui expedita perspiciatis nesciunt.",
+  },
+  {
+    id: 2,
+    icon: <GiDiamondHard />,
+    title: "Wireless Headphones",
+    text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam corporis facere doloribus quo eos! Recusandae vitae qui expedita perspiciatis nesciunt.",
+  },
+  {
+    id: 3,
+    icon: <GiStabbedNote />,
+    title: "Noise Cancelling Headphones",
+    text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam corporis facere doloribus quo eos! Recusandae vitae qui expedita perspiciatis nesciunt.",
+  },
+];
