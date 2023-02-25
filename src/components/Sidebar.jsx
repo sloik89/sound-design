@@ -34,7 +34,7 @@ const Sidebar = () => {
             );
           })}
           <li>
-            <Link onClick={closeSidebar} to="chekout">
+            <Link onClick={closeSidebar} to="checkout">
               Chekout
             </Link>
           </li>

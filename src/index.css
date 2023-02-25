@@ -29,3 +29,19 @@ ul {
 body {
   color: var(--clr-font);
 }
+/* global classes */
+.btn {
+  font-size: 1rem;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  border: none;
+  background-color: var(--clr-dark-violet);
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--clr-font);
+}
+.section-center {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 90vw;
+}

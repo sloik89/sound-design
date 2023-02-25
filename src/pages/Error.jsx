@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 const Error = () => {
@@ -7,7 +7,7 @@ const Error = () => {
       <div className="error-container">
         <h3>404</h3>
         <p>Sorry,the page you tried cannot be found</p>
-        <button>
+        <button className="btn">
           <Link to="/">Back to home</Link>
         </button>
       </div>
@@ -32,17 +32,8 @@ const Wrapper = styled.section`
     margin-bottom: 1rem;
     font-weight: bold;
   }
-  button {
-    font-size: 1rem;
-    text-transform: capitalize;
-    letter-spacing: 2px;
-    border: none;
-    background-color: var(--clr-dark-violet);
-    padding: 0.3rem 0.5rem;
-    border-radius: 0.5rem;
-    a {
-      color: var(--clr-font);
-    }
+  a {
+    color: inherit;
   }
 `;
 export default Error;
