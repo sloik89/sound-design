@@ -12,7 +12,7 @@ const Footer = () => {
   );
 };
 const Wrapper = styled.footer`
-  background-color: #594355;
+  background-color: var(--clr-dark-violet);
   height: 100px;
   display: flex;
   align-items: center;

@@ -8,6 +8,8 @@
   --max-width: 1170px;
   --clr-violet: #d32ec3;
   --clr-font: #a49ba3;
+  --clr-light-violet: #f0e7ee;
+  --clr-dark-violet: #594355;
 }
 body {
   font-family: "Roboto", "sans-serif";

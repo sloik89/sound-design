@@ -27,12 +27,16 @@ const Sidebar = () => {
           {links.map(({ id, text, url }) => {
             return (
               <li key={id}>
-                <Link to={url}>{text}</Link>
+                <Link onClick={closeSidebar} to={url}>
+                  {text}
+                </Link>
               </li>
             );
           })}
           <li>
-            <Link to="chekout">Chekout</Link>
+            <Link onClick={closeSidebar} to="chekout">
+              Chekout
+            </Link>
           </li>
         </ul>
         <AuthButtons className="auth-btns" />
