@@ -13,6 +13,7 @@ import Product from "./Product";
 import Stars from "./Stars";
 import ProductImages from "./ProductImages";
 import AddToCart from "./AddToCart";
+import ProductsImageModal from "./ProductsImageModal";
 export {
   Navbar,
   Sidebar,
@@ -29,4 +30,5 @@ export {
   Stars,
   ProductImages,
   AddToCart,
+  ProductsImageModal,
 };

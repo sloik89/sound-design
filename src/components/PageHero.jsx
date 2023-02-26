@@ -18,6 +18,7 @@ const Wrapper = styled.section`
   display: flex;
   align-items: center;
   background-color: var(--clr-dark-violet);
+  margin-bottom: 2rem;
   h3 {
     text-transform: uppercase;
     letter-spacing: 2px;

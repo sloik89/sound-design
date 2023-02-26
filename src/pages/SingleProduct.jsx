@@ -74,5 +74,38 @@ const SingleProduct = () => {
     </Wrapper>
   );
 };
-const Wrapper = styled.main``;
+const Wrapper = styled.main`
+  color: var(--clr-dark-violet);
+  .section-center {
+    padding: 2rem 0;
+  }
+  .products-center {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    @media screen and (min-width: 1000px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .content h2 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+  .content .price {
+    font-size: 2rem;
+  }
+  .content .desc {
+    letter-spacing: 2px;
+    margin-top: 1rem;
+  }
+  .content .info {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    span {
+      font-weight: bold;
+    }
+  }
+`;
 export default SingleProduct;
