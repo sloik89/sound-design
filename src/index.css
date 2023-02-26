@@ -39,9 +39,24 @@ body {
   padding: 0.3rem 0.5rem;
   border-radius: 0.5rem;
   color: var(--clr-font);
+  cursor: pointer;
 }
 .section-center {
   max-width: var(--max-width);
   margin: 0 auto;
   width: 90vw;
+}
+.section {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.underline {
+  background-color: var(--clr-violet);
+  height: 3px;
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 0.5rem;
 }

@@ -21,7 +21,7 @@ const Services = () => {
           {services.map((service) => {
             const { id, icon, title, text } = service;
             return (
-              <article className="service">
+              <article className="service" key={id}>
                 <span className="icon">{icon}</span>
                 <h4>{title}</h4>
                 <p>{text}</p>
@@ -43,7 +43,7 @@ const Wrapper = styled.section`
     gap: 2rem;
     justify-content: center;
     align-items: center;
-    margin: 2rem 0;
+    margin: 5rem 0;
     h3 {
       color: var(--clr-dark-violet);
       text-transform: capitalize;
