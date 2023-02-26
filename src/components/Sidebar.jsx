@@ -8,7 +8,7 @@ import { useProductsContext } from "../context/products_context";
 import { AuthButtons } from "./";
 const Sidebar = () => {
   const { isSidebarOpen, closeSidebar } = useProductsContext();
-  console.log(isSidebarOpen);
+
   return (
     <Wrapper>
       <aside className={`sidebar ${isSidebarOpen ? "sidebar-open" : ""}`}>

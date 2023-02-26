@@ -1,7 +1,7 @@
 import React from "react";
 import { GiCompass, GiDiamondHard, GiStabbedNote } from "react-icons/gi";
 export const SingleProductsUrl =
-  "https://serverless-seba-api.netlify.app/api/3-product?id=rec9UJLCfecbm3EvR";
+  "https://serverless-seba-api.netlify.app/api/3-product?id=";
 export const ProductsUrl =
   "https://serverless-seba-api.netlify.app/api/3-airtable";
 export const links = [
