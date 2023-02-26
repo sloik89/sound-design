@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useProductsContext } from "../context/products_context";
 const ProductImages = ({ images = [{ url: "" }] }) => {
+  const { displayProductsImageModal } = useProductsContext();
   const [main, setMain] = useState(images[0]);
   return (
     <Wrapper>
-      <img src={main.url} alt="" className="main" />
+      <img
+        src={main.url}
+        alt=""
+        className="main"
+        onClick={displayProductsImageModal}
+      />
       <div className="gallery">
         {images.map((item, idx) => {
           return (
@@ -25,10 +32,11 @@ const Wrapper = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--clr-dark-violet);
+
   .main {
     width: 100%;
     max-width: 500px;
+    cursor: pointer;
   }
   .gallery {
     margin: 2rem 0;

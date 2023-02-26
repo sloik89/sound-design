@@ -8,6 +8,8 @@ import {
   GET_SINGLE_PRODUCT_BEGIN,
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
+  OPEN_PRODUCTS_IMAGE_MODAL,
+  CLOSE_PRODUCTS_IMAGE_MODAL,
 } from "../actions";
 import reducer from "../reducers/products_reducers";
 import axios from "axios";
@@ -21,6 +23,7 @@ const initialState = {
   single_product_loading: false,
   single_product_error: false,
   single_product: {},
+  products_image_modal: false,
 };
 const ProductsContext = React.createContext();
 export const ProductsProvider = ({ children }) => {
@@ -50,6 +53,12 @@ export const ProductsProvider = ({ children }) => {
       dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
     }
   };
+  const displayProductsImageModal = () => {
+    dispatch({ type: OPEN_PRODUCTS_IMAGE_MODAL });
+  };
+  const closeProductsImageModal = () => {
+    dispatch({ type: CLOSE_PRODUCTS_IMAGE_MODAL });
+  };
   useEffect(() => {
     fetchProducts(url);
   }, []);
@@ -59,6 +68,8 @@ export const ProductsProvider = ({ children }) => {
         openSidebar,
         closeSidebar,
         fetchSingleProduct,
+        displayProductsImageModal,
+        closeProductsImageModal,
         ...state,
       }}
     >

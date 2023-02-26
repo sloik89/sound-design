@@ -7,6 +7,8 @@ import {
   GET_SINGLE_PRODUCT_BEGIN,
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
+  OPEN_PRODUCTS_IMAGE_MODAL,
+  CLOSE_PRODUCTS_IMAGE_MODAL,
 } from "../actions";
 const productsReducers = (state, action) => {
   if (action.type === OPEN_SIDEBAR) {
@@ -52,6 +54,12 @@ const productsReducers = (state, action) => {
       single_product_loading: false,
       single_product: action.payload,
     };
+  }
+  if (action.type === OPEN_PRODUCTS_IMAGE_MODAL) {
+    return { ...state, products_image_modal: true };
+  }
+  if (action.type === CLOSE_PRODUCTS_IMAGE_MODAL) {
+    return { ...state, products_image_modal: false };
   }
   return state;
 };

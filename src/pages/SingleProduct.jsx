@@ -11,6 +11,7 @@ import {
   ProductImages,
   PageHero,
   AddToCart,
+  ProductsImageModal,
 } from "../components";
 const SingleProduct = () => {
   const { id } = useParams();
@@ -21,6 +22,7 @@ const SingleProduct = () => {
     single_product_error: error,
     single_product: product,
     fetchSingleProduct,
+    products_image_modal,
   } = useProductsContext();
   console.log(loading, error);
   useEffect(() => {
@@ -39,9 +41,18 @@ const SingleProduct = () => {
   if (error) {
     return <Error />;
   }
-  const { Name: name, price, description, stock, company, images } = product;
+  const {
+    Name: name,
+    price,
+    description,
+    stock,
+    company,
+    images,
+    stars,
+  } = product;
   return (
     <Wrapper>
+      {products_image_modal && <ProductsImageModal images={images} />}
       <PageHero title={name} product />
       <div className="section-center">
         <Link to="/products" className="btn">
@@ -51,7 +62,7 @@ const SingleProduct = () => {
           <ProductImages images={images} />
           <div className="content">
             <h2>{name}</h2>
-            <Stars />
+            <Stars stars={stars} />
             <h5 className="price">{formatPrice(price)}</h5>
             <p className="desc">{description}</p>
             <p className="info">
