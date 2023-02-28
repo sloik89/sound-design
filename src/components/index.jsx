@@ -14,6 +14,7 @@ import Stars from "./Stars";
 import ProductImages from "./ProductImages";
 import AddToCart from "./AddToCart";
 import ProductsImageModal from "./ProductsImageModal";
+import AmountBtns from "./AmountBtns";
 export {
   Navbar,
   Sidebar,
@@ -31,4 +32,5 @@ export {
   ProductImages,
   AddToCart,
   ProductsImageModal,
+  AmountBtns,
 };

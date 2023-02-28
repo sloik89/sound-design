@@ -2,12 +2,25 @@ import React from "react";
 import { PageHero } from "../components";
 import styled from "styled-components";
 import aboutImg from "../assets/about-img.png";
+import { motion } from "framer-motion";
 const About = () => {
   return (
     <main>
       <PageHero title="about" />
       <Wrapper className="section-center">
-        <img src={aboutImg} alt="" />
+        <motion.div
+          animate={{
+            y: [0, 50, 0],
+          }}
+          transition={{
+            repeat: Infinity,
+
+            duration: 2,
+            delay: 1,
+          }}
+        >
+          <img src={aboutImg} alt="" />
+        </motion.div>
         <article>
           <div className="title">
             <h2>our story</h2>
@@ -29,6 +42,7 @@ const Wrapper = styled.section`
   display: flex;
   align-items: center;
   justify-items: space-between;
+  min-height: 100vh;
   img {
     flex: 0 1 30%;
   }

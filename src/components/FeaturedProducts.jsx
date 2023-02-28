@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useProductsContext } from "../context/products_context";
+import { delay, motion } from "framer-motion";
 import { Loading, Error, Product } from "./";
 const FeaturedProducts = () => {
   const {
@@ -21,11 +22,15 @@ const FeaturedProducts = () => {
         <h2>featured products</h2>
         <div className="underline"></div>
       </div>
-      <div className="section-center featured">
+      <motion.div
+        whileInView={{ y: [-50, 0], opacity: [0, 1] }}
+        transition={{ delay: 0.3 }}
+        className="section-center featured"
+      >
         {featured.slice(0, 3).map((product) => {
           return <Product key={product.id} {...product} />;
         })}
-      </div>
+      </motion.div>
     </Wrapper>
   );
 };

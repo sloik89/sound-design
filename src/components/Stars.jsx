@@ -2,7 +2,6 @@ import React from "react";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 const Stars = ({ stars }) => {
   const tempStars = Array.from({ length: 5 }, (_, idx) => {
-    console.log(idx);
     const number = idx + 0.5;
     return (
       <span key={idx}>
