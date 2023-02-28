@@ -15,7 +15,7 @@ const Stars = ({ stars }) => {
       </span>
     );
   });
-  console.log(tempStars, stars);
+
   return <div>{tempStars}</div>;
 };
 

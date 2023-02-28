@@ -24,7 +24,7 @@ const SingleProduct = () => {
     fetchSingleProduct,
     products_image_modal,
   } = useProductsContext();
-  console.log(loading, error);
+
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`);
   }, [id]);

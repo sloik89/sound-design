@@ -3,6 +3,6 @@ export const formatPrice = (price) => {
     style: "currency",
     currency: "USD",
   }).format(price);
-  console.log(price / 100);
+
   return newNumber;
 };
