@@ -8,7 +8,7 @@ const Product = ({ images, Name, price, id }) => {
   return (
     <Wrapper>
       <div className="container">
-        <img src={images[0].url} alt={name} />
+        <img src={images[0].url} alt={Name} />
       </div>
       <footer>
         <h5>{Name}</h5>
@@ -37,11 +37,11 @@ const Wrapper = styled.article`
     position: absolute;
     letter-spacing: 2px;
     font-size: 1.2rem;
-    bottom: -200px;
+    bottom: -100%;
     width: 100%;
     background-color: rgba(211, 46, 195, 0.3);
     left: 0;
-    height: 200px;
+    height: 100%;
     transition: all 0.4s linear;
     display: flex;
     flex-direction: column;

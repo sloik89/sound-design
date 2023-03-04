@@ -7,6 +7,7 @@ import filterReducer from "../reducers/filter_reducers";
 const initialState = {
   filtered_products: [],
   all_products: [],
+  grid_view: false,
 };
 const FilterContext = React.createContext();
 export const FilterProvider = ({ children }) => {
@@ -20,7 +21,7 @@ export const FilterProvider = ({ children }) => {
   return (
     <FilterContext.Provider
       value={{
-        text: "sds",
+        ...state,
       }}
     >
       {children}

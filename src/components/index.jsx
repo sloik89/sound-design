@@ -15,6 +15,11 @@ import ProductImages from "./ProductImages";
 import AddToCart from "./AddToCart";
 import ProductsImageModal from "./ProductsImageModal";
 import AmountBtns from "./AmountBtns";
+import Filters from "./Filters";
+import ProductList from "./ProductList";
+import Sort from "./Sort";
+import GridView from "./GridView";
+import ListView from "./ListView";
 export {
   Navbar,
   Sidebar,
@@ -33,4 +38,9 @@ export {
   AddToCart,
   ProductsImageModal,
   AmountBtns,
+  Filters,
+  ProductList,
+  Sort,
+  ListView,
+  GridView,
 };

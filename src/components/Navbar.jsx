@@ -49,10 +49,27 @@ const NavContainer = styled.nav`
     text-transform: capitalize;
     letter-spacing: 2px;
     font-size: 1.1rem;
-
-    & li a:hover {
-      border-bottom: 2px solid var(--clr-violet);
+    position: relative;
+    li {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0px;
+        height: 3px;
+        background-color: var(--clr-violet);
+        transition: 0.2s ease-in-out;
+      }
+      &:hover::after {
+        width: 100%;
+      }
     }
+    /* & li a:hover {
+      border-bottom: 2px solid var(--clr-violet);
+      padding-bottom: 0.5rem;
+    } */
   }
   margin-top: 2rem;
   .logo {
