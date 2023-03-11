@@ -15,3 +15,4 @@ export const UPDATE_SORT = "UPDATE_SORT";
 export const SORT_PRODUCTS = "SORT_PRODUCTS";
 export const UPDATE_SEARCH = "UPDATE_SEARCH";
 export const UPDATE_FILTERS = "UPDATE_FILTERS";
+export const CLEAR_FILTERS = "CLEAR_FILTERS";

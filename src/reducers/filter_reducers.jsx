@@ -6,6 +6,7 @@ import {
   SORT_PRODUCTS,
   UPDATE_SEARCH,
   UPDATE_FILTERS,
+  CLEAR_FILTERS,
 } from "../actions";
 const filterReducer = (state, action) => {
   if (action.type === LOAD_PRODUCTS) {
@@ -68,8 +69,55 @@ const filterReducer = (state, action) => {
     return { ...state, filters: { ...state.filters, [name]: value } };
   }
   if (action.type === UPDATE_FILTERS) {
-    console.log("update filters");
-    return { ...state };
+    const { all_products } = state;
+    const { inputSearch, company, color, category, price, shipping } =
+      state.filters;
+    let tempProducts = [...all_products];
+
+    // filter by search input
+    if (inputSearch) {
+      tempProducts = tempProducts.filter((item) => {
+        return item.Name.toLowerCase().startsWith(inputSearch);
+      });
+    }
+    if (category !== "all") {
+      tempProducts = tempProducts.filter(
+        (item) => item.category.toLowerCase() === category.toLowerCase()
+      );
+    }
+    if (company !== "all") {
+      console.log("jestem w company" + company);
+      tempProducts = tempProducts.filter(
+        (item) => item.company.toLowerCase() === company.toLowerCase()
+      );
+    }
+    if (color !== "all") {
+      tempProducts = tempProducts.filter((item) => {
+        return item.colors.includes(color);
+      });
+    }
+    if (shipping) {
+      tempProducts = tempProducts.filter((item) => item.shipping);
+    }
+    if (price) {
+      console.log(price);
+      tempProducts = tempProducts.filter((item) => item.price <= price);
+    }
+    return { ...state, filtered_products: tempProducts };
+  }
+  if (action.type === CLEAR_FILTERS) {
+    return {
+      ...state,
+      filters: {
+        ...state.filters,
+        inputSearch: "",
+        company: "all",
+        category: "all",
+        color: "all",
+        price: state.filters.max_price,
+        shipping: false,
+      },
+    };
   }
   return state;
 };

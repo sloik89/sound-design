@@ -40,7 +40,6 @@ const Filters = () => {
           <div className="form-control">
             <h5>category</h5>
             {categories.map((c, idx) => {
-              console.log(category);
               return (
                 <button
                   className={`${category === c ? "active" : null}`}

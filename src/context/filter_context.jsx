@@ -7,6 +7,7 @@ import {
   SORT_PRODUCTS,
   UPDATE_SEARCH,
   UPDATE_FILTERS,
+  CLEAR_FILTERS,
 } from "../actions";
 import reducer from "../reducers/products_reducers";
 import axios from "axios";
@@ -19,7 +20,7 @@ const initialState = {
   select_option: "price-lowest",
   filters: {
     inputSearch: "",
-    company: "",
+    company: "all",
     category: "all",
     color: "all",
     min_price: 0,
@@ -31,8 +32,8 @@ const initialState = {
 const FilterContext = React.createContext();
 export const FilterProvider = ({ children }) => {
   const { products } = useProductsContext();
-
   const [state, dispatch] = useReducer(filterReducer, initialState);
+
   useEffect(() => {
     dispatch({ type: LOAD_PRODUCTS, payload: products });
   }, [products]);
@@ -65,7 +66,7 @@ export const FilterProvider = ({ children }) => {
     dispatch({ type: UPDATE_SEARCH, payload: { name, value } });
   };
   const clearFilters = () => {
-    console.log("clear filters");
+    dispatch({ type: CLEAR_FILTERS });
   };
   useEffect(() => {
     dispatch({ type: UPDATE_FILTERS });
