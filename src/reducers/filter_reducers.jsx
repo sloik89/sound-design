@@ -64,7 +64,7 @@ const filterReducer = (state, action) => {
   }
   if (action.type === UPDATE_SEARCH) {
     const { name, value } = action.payload;
-    console.log(name, value);
+
     return { ...state, filters: { ...state.filters, [name]: value } };
   }
   if (action.type === UPDATE_FILTERS) {

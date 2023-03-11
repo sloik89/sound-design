@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useFilterContext } from "../context/filter_context";
-import { getUniqueValues } from "../utilis/helpers";
+import { formatPrice, getUniqueValues } from "../utilis/helpers";
 import { FaCheck } from "react-icons/fa";
 const Filters = () => {
   const {
@@ -13,9 +13,11 @@ const Filters = () => {
       max_price,
       price,
       company,
+      shipping,
     },
     updateFilters,
     all_products,
+    clearFilters,
   } = useFilterContext();
   const categories = getUniqueValues(all_products, "category");
   const companies = getUniqueValues(all_products, "company");
@@ -38,11 +40,10 @@ const Filters = () => {
           <div className="form-control">
             <h5>category</h5>
             {categories.map((c, idx) => {
+              console.log(category);
               return (
                 <button
-                  className={`${
-                    category === c.toLowerCase() ? "active" : null
-                  }`}
+                  className={`${category === c ? "active" : null}`}
                   key={idx}
                   type="button"
                   name="category"
@@ -106,18 +107,79 @@ const Filters = () => {
               })}
             </div>
           </div>
+          <div className="form-control">
+            <h5>price</h5>
+            <p className="price">{formatPrice(price)}</p>
+            <input
+              min={min_price}
+              max={max_price}
+              onChange={updateFilters}
+              value={price}
+              type="range"
+              name="price"
+            />
+          </div>
+          <div className="form-control">
+            <label htmlFor="shipping">free shipping</label>
+            <input
+              type="checkbox"
+              name="shipping"
+              id="shipping"
+              className="shipping"
+              onChange={updateFilters}
+              checked={shipping}
+            />
+          </div>
         </form>
+        <button onClick={clearFilters} type="button" className="clear-btn btn">
+          clear filters
+        </button>
       </div>
     </Wrapper>
   );
 };
 const Wrapper = styled.section`
+  /* border: 1px solid black; */
+  .content {
+    padding: 1rem 0;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
   .form-control {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
+    align-items: flex-start;
     justify-content: center;
+    gap: 0.5rem;
+    h5 {
+      color: var(--clr-dark-violet);
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      text-transform: capitalize;
+      margin-bottom: 0.5rem;
+    }
+    button {
+      background-color: transparent;
+      border: none;
+      text-transform: capitalize;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      &.active {
+        border-bottom: 1px solid black;
+      }
+    }
+  }
+  .search-input {
+    padding: 0.5rem 0.2rem;
+    letter-spacing: 2px;
+    background-color: #cfbdcd;
+    border: none;
+    border-radius: 0.5rem;
   }
   .colors {
     display: flex;
@@ -151,6 +213,9 @@ const Wrapper = styled.section`
     .all-btn.active {
       opacity: 1;
     }
+  }
+  .clear-btn {
+    margin-top: 1rem;
   }
 `;
 export default Filters;

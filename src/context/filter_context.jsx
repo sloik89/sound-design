@@ -51,13 +51,21 @@ export const FilterProvider = ({ children }) => {
 
     if (name === "category") {
       value = e.target.textContent;
-      console.log("jestem w category");
     }
     if (name === "color") {
       value = e.target.dataset.color;
-      console.log(e.target.dataset.color);
+    }
+    if (name === "price") {
+      value = Number(value);
+    }
+    if (name === "shipping") {
+      value = e.target.checked;
+      console.log(e.target.checked);
     }
     dispatch({ type: UPDATE_SEARCH, payload: { name, value } });
+  };
+  const clearFilters = () => {
+    console.log("clear filters");
   };
   useEffect(() => {
     dispatch({ type: UPDATE_FILTERS });
@@ -71,6 +79,7 @@ export const FilterProvider = ({ children }) => {
         setListView,
         handleSelect,
         updateFilters,
+        clearFilters,
       }}
     >
       {children}
