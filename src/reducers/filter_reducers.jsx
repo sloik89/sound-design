@@ -11,7 +11,7 @@ const filterReducer = (state, action) => {
   if (action.type === LOAD_PRODUCTS) {
     const tempPrice = action.payload.map((item) => item.price);
     const findMax = Math.max(...tempPrice);
-    console.log(findMax);
+
     return {
       ...state,
       all_products: [...action.payload],

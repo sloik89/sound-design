@@ -6,3 +6,10 @@ export const formatPrice = (price) => {
 
   return newNumber;
 };
+export const getUniqueValues = (products, title) => {
+  let unique = products.map((item) => item[title]);
+  if (title === "colors") {
+    unique = unique.flat();
+  }
+  return ["all", ...new Set(unique)];
+};

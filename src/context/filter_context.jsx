@@ -20,7 +20,7 @@ const initialState = {
   filters: {
     inputSearch: "",
     company: "",
-    category: "",
+    category: "all",
     color: "all",
     min_price: 0,
     max_price: 0,
@@ -35,7 +35,6 @@ export const FilterProvider = ({ children }) => {
   const [state, dispatch] = useReducer(filterReducer, initialState);
   useEffect(() => {
     dispatch({ type: LOAD_PRODUCTS, payload: products });
-    console.log(products);
   }, [products]);
   const setGridView = () => {
     dispatch({ type: SET_GRID_VIEW });
@@ -49,6 +48,15 @@ export const FilterProvider = ({ children }) => {
   };
   const updateFilters = (e) => {
     let { name, value } = e.target;
+
+    if (name === "category") {
+      value = e.target.textContent;
+      console.log("jestem w category");
+    }
+    if (name === "color") {
+      value = e.target.dataset.color;
+      console.log(e.target.dataset.color);
+    }
     dispatch({ type: UPDATE_SEARCH, payload: { name, value } });
   };
   useEffect(() => {
