@@ -41,7 +41,7 @@ const SingleProduct = () => {
   if (error) {
     return <Error />;
   }
-  console.log(product);
+
   const {
     Name: name,
     price,

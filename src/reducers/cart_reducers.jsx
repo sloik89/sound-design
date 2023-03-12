@@ -8,13 +8,24 @@ import {
 const reducer = (state, action) => {
   if (action.type === ADD_TO_CART) {
     const { id, amount, color, product } = action.payload;
-    console.log(product);
+
     const tempItem = state.cart.find((item) => item.id === id + color);
     if (tempItem) {
+      const tempCart = state.cart.map((item) => {
+        if (item.id === id + color) {
+          let tempAmount = item.amount + amount;
+          if (tempAmount > item.max) {
+            tempAmount = item.max;
+          }
+          return { ...item, amount: tempAmount };
+        }
+        return item;
+      });
+      return { ...state, cart: tempCart };
     } else {
       const newItem = {
         id: id + color,
-        name: product.name,
+        name: product.Name,
         color,
         amount,
         image: product.images[0].url,
