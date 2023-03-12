@@ -41,6 +41,7 @@ const SingleProduct = () => {
   if (error) {
     return <Error />;
   }
+  console.log(product);
   const {
     Name: name,
     price,
@@ -78,7 +79,7 @@ const SingleProduct = () => {
               {company}
             </p>
             <hr />
-            {stock > 0 && <AddToCart product={product} />}
+            {stock > 0 && <AddToCart product={product} idProduct={id} />}
           </div>
         </div>
       </div>
