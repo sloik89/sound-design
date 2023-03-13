@@ -7,8 +7,15 @@ import {
   COUNT_CART_TOTALS,
 } from "../actions";
 import reducer from "../reducers/cart_reducers";
+const checkLocalStorage = () => {
+  if (localStorage.getItem("cart")) {
+    return JSON.parse(localStorage.getItem("cart"));
+  } else {
+    return [];
+  }
+};
 const initialState = {
-  cart: [],
+  cart: checkLocalStorage(),
   total_items: 0,
   total_amount: 0,
   shipping_fee: 534,
@@ -33,6 +40,10 @@ export const CartProvider = ({ children }) => {
   const clearCart = () => {
     console.log("clear cart");
   };
+  // set local storage
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(state.cart));
+  }, [state.cart]);
   return (
     <CartContext.Provider
       value={{ ...state, addToCart, removeItem, toggleAmount, clearCart }}
