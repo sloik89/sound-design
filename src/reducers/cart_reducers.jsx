@@ -35,6 +35,20 @@ const reducer = (state, action) => {
       return { ...state, cart: [...state.cart, newItem] };
     }
   }
+  if (action.type === REMOVE_CART_ITEM) {
+    const tempCart = state.cart.filter((item) => item.id !== action.payload);
+    console.log("remove item reducer");
+    return { ...state, cart: tempCart };
+  }
+  if (action.type === CLEAR_CART) {
+    console.log("remove cart");
+    return { ...state, cart: [] };
+  }
+  if ((action.type = TOGGLE_CART_ITEM_AMOUNT)) {
+    const { id, value } = action.payload;
+    console.log(value);
+    return { ...state };
+  }
   return { ...state };
 };
 export default reducer;

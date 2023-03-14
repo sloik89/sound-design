@@ -31,14 +31,16 @@ export const CartProvider = ({ children }) => {
   //   remove item
   const removeItem = (id) => {
     console.log(id);
+    dispatch({ type: REMOVE_CART_ITEM, payload: id });
   };
   //   toggle cart
   const toggleAmount = (id, value) => {
-    console.log(id, value);
+    dispatch({ type: TOGGLE_CART_ITEM_AMOUNT, payload: { id, value } });
   };
   // clear cart
   const clearCart = () => {
     console.log("clear cart");
+    dispatch({ type: CLEAR_CART });
   };
   // set local storage
   useEffect(() => {

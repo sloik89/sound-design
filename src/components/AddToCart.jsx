@@ -10,7 +10,7 @@ const AddToCart = ({ product, idProduct }) => {
 
   const [mainColor, setMainColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
-  const increase = () => {
+  const decrease = () => {
     setAmount((oldState) => {
       if (oldState <= 1) {
         return 1;
@@ -18,7 +18,7 @@ const AddToCart = ({ product, idProduct }) => {
       return oldState - 1;
     });
   };
-  const decrease = () => {
+  const increase = () => {
     setAmount((oldState) => {
       if (oldState >= stock) {
         return stock;

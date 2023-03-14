@@ -7,7 +7,7 @@ import { CartItem } from "./";
 import { CartTotals } from "./";
 const CartContent = () => {
   const { cart, clearCart } = useCartContext();
-  console.log(cart);
+
   return (
     <Wrapper>
       <CartColumns />
