@@ -5,4 +5,14 @@ import SingleProduct from "./SingleProduct";
 import Products from "./Products";
 import Checkout from "./Checkout";
 import Error from "./Error";
-export { Home, About, Cart, SingleProduct, Products, Error, Checkout };
+import AuthWrapper from "./AuthWrapper";
+export {
+  Home,
+  About,
+  Cart,
+  SingleProduct,
+  Products,
+  Error,
+  Checkout,
+  AuthWrapper,
+};

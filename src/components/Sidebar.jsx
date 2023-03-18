@@ -6,7 +6,9 @@ import { FaTimes } from "react-icons/fa";
 import { links } from "../utilis/constants";
 import { useProductsContext } from "../context/products_context";
 import { AuthButtons } from "./";
+import { useUserContext } from "../context/user_context";
 const Sidebar = () => {
+  const { myUser } = useUserContext();
   const { isSidebarOpen, closeSidebar } = useProductsContext();
   useEffect(() => {
     console.log(isSidebarOpen);
@@ -40,11 +42,13 @@ const Sidebar = () => {
               </li>
             );
           })}
-          <li>
-            <Link onClick={closeSidebar} to="checkout">
-              Chekout
-            </Link>
-          </li>
+          {myUser && (
+            <li>
+              <Link onClick={closeSidebar} to="checkout">
+                checkout
+              </Link>
+            </li>
+          )}
         </ul>
         <AuthButtons className="auth-btns" />
       </aside>

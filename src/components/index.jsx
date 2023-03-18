@@ -24,6 +24,7 @@ import CartContent from "./CartContent";
 import CartColumns from "./CartColumns";
 import CartItem from "./CartItem";
 import CartTotals from "./CartTotals";
+import PrivateRoute from "./PrivateRoute";
 export {
   Navbar,
   Sidebar,
@@ -51,4 +52,5 @@ export {
   CartColumns,
   CartItem,
   CartTotals,
+  PrivateRoute,
 };

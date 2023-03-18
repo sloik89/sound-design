@@ -10,7 +10,7 @@ import { useUserContext } from "../context/user_context";
 const Navbar = () => {
   const { openSidebar } = useProductsContext();
   const { myUser } = useUserContext();
-  console.log(myUser);
+
   return (
     <NavContainer>
       <div className="nav-center">
