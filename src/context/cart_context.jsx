@@ -14,6 +14,7 @@ const checkLocalStorage = () => {
     return [];
   }
 };
+
 const initialState = {
   cart: checkLocalStorage(),
   total_items: 0,

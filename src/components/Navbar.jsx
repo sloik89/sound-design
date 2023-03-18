@@ -6,8 +6,11 @@ import { AuthButtons } from "./";
 import { links } from "../utilis/constants";
 import { useProductsContext } from "../context/products_context";
 import logo from "../assets/icon.svg";
+import { useUserContext } from "../context/user_context";
 const Navbar = () => {
   const { openSidebar } = useProductsContext();
+  const { myUser } = useUserContext();
+  console.log(myUser);
   return (
     <NavContainer>
       <div className="nav-center">
@@ -31,6 +34,12 @@ const Navbar = () => {
               </li>
             );
           })}
+          {myUser && (
+            <li>
+              <Link to="checkout">checkout</Link>
+            </li>
+          )}
+          ;
         </ul>
         <AuthButtons />
       </div>

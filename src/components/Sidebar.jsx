@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import logo from "../assets/icon.svg";
@@ -8,7 +8,14 @@ import { useProductsContext } from "../context/products_context";
 import { AuthButtons } from "./";
 const Sidebar = () => {
   const { isSidebarOpen, closeSidebar } = useProductsContext();
-
+  useEffect(() => {
+    console.log(isSidebarOpen);
+    if (isSidebarOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "scroll";
+    }
+  }, [isSidebarOpen]);
   return (
     <Wrapper>
       <aside className={`sidebar ${isSidebarOpen ? "sidebar-open" : ""}`}>
@@ -56,6 +63,7 @@ const Wrapper = styled.div`
     height: 100vh;
     background-color: #fff;
     transition: 0.4s linear;
+    z-index: 1;
   }
   .sidebar-open {
     transform: translateX(0);

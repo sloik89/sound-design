@@ -4,7 +4,6 @@ import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { formatPrice } from "../utilis/helpers";
 const Product = ({ images, Name, price, id }) => {
-  console.log(images[0].url);
   return (
     <Wrapper>
       <div className="container">
